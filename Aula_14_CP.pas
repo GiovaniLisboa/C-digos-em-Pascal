@@ -16,33 +16,33 @@ Var cont,i: integer;
 		mes_arq,ano_arq,caminho: string;
 		arq_c: file of cartao; 
 
-//MÛdulos        
+//M√≥dulos        
 Procedure entrada;
 Begin
 	cont:=0;
 	Repeat
 		cont:= cont+1;
-		Write('Insira o dia do cart„o de ponto: ');
+		Write('Insira o dia do cart√£o de ponto: ');
 		Repeat
 			teste:=true;
 			Readln(cartao_dia[cont].dia);
 			If cartao_dia[cont].dia<1
 				Then	Begin
 							teste:=false;
-							Write('Data inv·lida. Insira o dia do cart„o de ponto: ');
+							Write('Data inv√°lida. Insira o dia do cart√£o de ponto: ');
 							End
 				Else	If cartao_dia[cont].dia>31
 							Then	Begin
 										teste:=false;
-										Write('Data inv·lida. Insira o dia do cart„o de ponto: ');
+										Write('Data inv√°lida. Insira o dia do cart√£o de ponto: ');
 										End;	
 		until teste=true; Writeln;
-		Write('Hor·rio de entrada da manh„ (DIA ',cartao_dia[cont].dia,'): '); Readln(cartao_dia[cont].em);
-    Write('Hor·rio de saÌda da manh„ (DIA ',cartao_dia[cont].dia,'): '); Readln(cartao_dia[cont].sm);
-    Write('Hor·rio de entrada da tarde (DIA ',cartao_dia[cont].dia,'): '); Readln(cartao_dia[cont].et);
-    Write('Hor·rio de saÌda da tarde (DIA ',cartao_dia[cont].dia,'): '); Readln(cartao_dia[cont].st);
+		Write('Hor√°rio de entrada da manh√£ (DIA ',cartao_dia[cont].dia,'): '); Readln(cartao_dia[cont].em);
+    Write('Hor√°rio de sa√≠da da manh√£ (DIA ',cartao_dia[cont].dia,'): '); Readln(cartao_dia[cont].sm);
+    Write('Hor√°rio de entrada da tarde (DIA ',cartao_dia[cont].dia,'): '); Readln(cartao_dia[cont].et);
+    Write('Hor√°rio de sa√≠da da tarde (DIA ',cartao_dia[cont].dia,'): '); Readln(cartao_dia[cont].st);
     Write(arq_c,cartao_dia[cont]); Writeln;	
-		Writeln('Deseja entrar com uma nova data? (1. Sim / 2. N„o)'); Readln(i);
+		Writeln('Deseja entrar com uma nova data? (1. Sim / 2. N√£o)'); Readln(i);
 		Case i of
 			1: teste:=true;
 			2: teste:=false;
@@ -108,22 +108,22 @@ End;
 		      
 Procedure impressao;
 Begin
-	Writeln('RELAT”RIO DE PONTO DO M S ',mes_arq,'.',ano_arq); Writeln;
+	Writeln('RELAT√ìRIO DE PONTO DO M√äS ',mes_arq,'.',ano_arq); Writeln;
 	For i:=1 to cont do
 	Begin
 		Writeln('DIA ',cartao_dia[i].dia);
 		If (cartao_dia[i].em MOD 100)<10
-			Then Writeln('Entrada Manh„: ',(cartao_dia[i].em DIV 100),':0',(cartao_dia[i].em MOD 100))
-			Else Writeln('Entrada Manh„: ',(cartao_dia[i].em DIV 100),':',(cartao_dia[i].em MOD 100));    
+			Then Writeln('Entrada Manh√£: ',(cartao_dia[i].em DIV 100),':0',(cartao_dia[i].em MOD 100))
+			Else Writeln('Entrada Manh√£: ',(cartao_dia[i].em DIV 100),':',(cartao_dia[i].em MOD 100));    
 		If (cartao_dia[i].sm MOD 100)<10
-			Then Writeln('SaÌda Manh„: ',(cartao_dia[i].sm DIV 100),':0',(cartao_dia[i].sm MOD 100))
-			Else Writeln('SaÌda Manh„: ',(cartao_dia[i].sm DIV 100),':',(cartao_dia[i].sm MOD 100));
+			Then Writeln('Sa√≠da Manh√£: ',(cartao_dia[i].sm DIV 100),':0',(cartao_dia[i].sm MOD 100))
+			Else Writeln('Sa√≠da Manh√£: ',(cartao_dia[i].sm DIV 100),':',(cartao_dia[i].sm MOD 100));
     If (cartao_dia[i].et MOD 100)<10
 			Then Writeln('Entrada Tarde: ',(cartao_dia[i].et DIV 100),':0',(cartao_dia[i].et MOD 100))
 			Else Writeln('Entrada Tarde: ',(cartao_dia[i].et DIV 100),':',(cartao_dia[i].et MOD 100));    
 		If (cartao_dia[i].st MOD 100)<10
-			Then Writeln('SaÌda Tarde: ',(cartao_dia[i].st DIV 100),':0',(cartao_dia[i].st MOD 100))
-			Else Writeln('SaÌda Tarde: ',(cartao_dia[i].st DIV 100),':',(cartao_dia[i].st MOD 100));
+			Then Writeln('Sa√≠da Tarde: ',(cartao_dia[i].st DIV 100),':0',(cartao_dia[i].st MOD 100))
+			Else Writeln('Sa√≠da Tarde: ',(cartao_dia[i].st DIV 100),':',(cartao_dia[i].st MOD 100));
     If (total_dia[i].horas MOD 60)<10
     	Then	Writeln('Total de horas trabalhadas no dia: ',((total_dia[i].horas) DIV 60),'h0',((total_dia[i].horas) MOD 60),'min')
     	Else	Writeln('Total de horas trabalhadas no dia: ',((total_dia[i].horas) DIV 60),'h',((total_dia[i].horas) MOD 60),'min');
@@ -134,22 +134,22 @@ Begin
 	End;
     Writeln;
     If (total_horas MOD 60)<10
-    	Then	Writeln('Tempo de atraso no mÍs: ',((total_horas) DIV 60),'h0',((total_horas) MOD 60),'min')
-    	Else	Writeln('Tempo de atraso no mÍs: ',((total_horas) DIV 60),'h',((total_horas) MOD 60),'min');
+    	Then	Writeln('Tempo de atraso no m√™s: ',((total_horas) DIV 60),'h0',((total_horas) MOD 60),'min')
+    	Else	Writeln('Tempo de atraso no m√™s: ',((total_horas) DIV 60),'h',((total_horas) MOD 60),'min');
 		If (total_atrasos MOD 60)<10
-    	Then	Writeln('Tempo de atraso no mÍs: ',((total_atrasos) DIV 60),'h0',((total_atrasos) MOD 60),'min')
-    	Else	Writeln('Tempo de atraso no mÍs: ',((total_atrasos) DIV 60),'h',((total_atrasos) MOD 60),'min');
+    	Then	Writeln('Tempo de atraso no m√™s: ',((total_atrasos) DIV 60),'h0',((total_atrasos) MOD 60),'min')
+    	Else	Writeln('Tempo de atraso no m√™s: ',((total_atrasos) DIV 60),'h',((total_atrasos) MOD 60),'min');
     If (media_horas MOD 60)<10
-    	Then	Writeln('MÈdia de horas trabalhadas por dia: ',((media_horas) DIV 60),'h0',((media_horas) MOD 60),'min')
-    	Else	Writeln('MÈdia de horas trabalhadas por dia: ',((media_horas) DIV 60),'h',((media_horas) MOD 60),'min');
+    	Then	Writeln('M√©dia de horas trabalhadas por dia: ',((media_horas) DIV 60),'h0',((media_horas) MOD 60),'min')
+    	Else	Writeln('M√©dia de horas trabalhadas por dia: ',((media_horas) DIV 60),'h',((media_horas) MOD 60),'min');
     If (media_atrasos MOD 60)<10
-    	Then	Writeln('MÈdia de atraso por dia: ',((media_atrasos) DIV 60),'h0',((media_atrasos) MOD 60),'min')
-    	Else	Writeln('MÈdia de atraso por dia: ',((media_atrasos) DIV 60),'h',((media_atrasos) MOD 60),'min');
+    	Then	Writeln('M√©dia de atraso por dia: ',((media_atrasos) DIV 60),'h0',((media_atrasos) MOD 60),'min')
+    	Else	Writeln('M√©dia de atraso por dia: ',((media_atrasos) DIV 60),'h',((media_atrasos) MOD 60),'min');
 End;
 
 Procedure reescrever_arquivo;
 Begin	
-	Write('Insira o mÍs referente: '); readln(mes_arq);
+	Write('Insira o m√™s referente: '); readln(mes_arq);
 	Write('Insira o ano referente: '); readln(ano_arq);
 	//caminho:='C:\Users\Giovani\OneDrive\Documentos\'+mes_arq+ano_arq;
 	caminho:='C:\Users\201711140029\Desktop\'+mes_arq+ano_arq;
@@ -159,7 +159,7 @@ End;
 
 Procedure ler_arquivo;
 Begin	
-	Write('Insira o mÍs referente: '); readln(mes_arq);
+	Write('Insira o m√™s referente: '); readln(mes_arq);
 	Write('Insira o ano referente: '); readln(ano_arq);
 	//caminho:='C:\Users\Giovani\OneDrive\Documentos\'+mes_arq+ano_arq;
 	caminho:='C:\Users\201711140029\Desktop\'+mes_arq+ano_arq;
@@ -169,11 +169,11 @@ End;
     
 //Programa Principal        
 Begin
-	Writeln('Ol·! Bem-vindo(a) ao MÛdulo de controle de ponto'); Writeln;
+	Writeln('Ol√°! Bem-vindo(a) ao M√≥dulo de controle de ponto'); Writeln;
 	Writeln('MENU');
 	Writeln('1. Criar arquivo');
 	Writeln('2. Ler arquivo'); Writeln;
-	Write('Insira a opÁ„o desejada: '); Readln(i); Writeln;
+	Write('Insira a op√ß√£o desejada: '); Readln(i); Writeln;
 	Case i of
 		1:	Begin
 					Reescrever_arquivo;
